@@ -10,6 +10,7 @@ const server = createServer(app);
 
 (async () => {
   await connectDB(uri);
-  server.listen(PORT, () => console.log(`Listening to port @ http://localhost:${PORT}`));
+  server.listen(PORT, () =>
+    console.log(`Listening to port @ http://localhost:${PORT}`)
+  );
 })();
-
