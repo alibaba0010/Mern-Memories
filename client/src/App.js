@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "@material-ui/core";
- import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
@@ -11,8 +11,9 @@ const App = () => (
     <Container maxWidth="lg">
       <Navbar />
       <Routes>
-        <Route path="/" exact element={Home()} />
-        <Route path="/auth" exact element={Auth} />
+        <Route path="/" exact element={<Home />} />
+        <Route path="/auth" exact element={<Auth />} />
+        {/* <Auth /> */}
       </Routes>
     </Container>
   </BrowserRouter>
