@@ -13,7 +13,6 @@ const App = () => (
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/auth" exact element={<Auth />} />
-        {/* <Auth /> */}
       </Routes>
     </Container>
   </BrowserRouter>
