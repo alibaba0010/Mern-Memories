@@ -4,8 +4,6 @@ import dotenv from "dotenv";
 import UserModal from "../models/user.model.js";
 dotenv.config();
 
-const secret = "test";
-
 export const signin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -22,8 +20,7 @@ export const signin = async (req, res) => {
 
     const token = jwt.sign(
       { email: oldUser.email, id: oldUser._id },
-      //  process.env.JWT_SEC,
-      secret,
+      process.env.JWT_SEC,
       { expiresIn: "1h" }
     );
 
@@ -49,11 +46,15 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       name: `${firstName} ${lastName}`,
     });
-
-    const token = jwt.sign({ email: result.email, id: result._id }, secret, {
-      expiresIn: "1h",
-    });
-
+    console.log(process.env.JWT_SEC);
+    const token = jwt.sign(
+      { email: result.email, id: result._id },
+      process.env.JWT_SEC,
+      {
+        expiresIn: "1h",
+      }
+    );
+    console.log("token: ", token);
     res.status(201).json({ result, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
