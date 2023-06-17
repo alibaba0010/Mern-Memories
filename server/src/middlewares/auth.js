@@ -4,9 +4,7 @@ dotenv.config();
 
 const auth = async (req, res, next) => {
   try {
-    console.log("in auth");
     const token = req.headers.authorization.split(" ")[1];
-    console.log("Token Auth: ", token);
     const isCustomAuth = token.length < 500;
 
     let decodedData;

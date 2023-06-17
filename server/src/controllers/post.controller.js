@@ -80,9 +80,7 @@ export const likePost = async (req, res) => {
     return res.status(404).send(`No post with id: ${id}`);
 
   const post = await PostMessage.findById(id);
-  console.log("post: ", post);
   const index = post.likes.findIndex((id) => id === String(req.userId));
-  console.log("index: ", index);
 
   if (index === -1) {
     post.likes.push(req.userId);

@@ -46,7 +46,6 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       name: `${firstName} ${lastName}`,
     });
-    console.log(process.env.JWT_SEC);
     const token = jwt.sign(
       { email: result.email, id: result._id },
       process.env.JWT_SEC,
@@ -54,7 +53,6 @@ export const signup = async (req, res) => {
         expiresIn: "1h",
       }
     );
-    console.log("token: ", token);
     res.status(201).json({ result, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
