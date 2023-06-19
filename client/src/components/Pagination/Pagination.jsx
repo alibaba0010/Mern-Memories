@@ -17,7 +17,8 @@ const Paginate = ({ page }) => {
     if (page) {
       dispatch(getPosts(page));
     }
-  }, [dispatch, page]);
+  }, [dispatch, page]);  // eslint-disable-line react-hooks/exhaustive-deps
+
 
   return (
     <Pagination

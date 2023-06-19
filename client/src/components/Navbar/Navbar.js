@@ -4,7 +4,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 
-import memories from "../../images/memories.png";
+import memoriesText from "../../images/memoriesText.png";
+import memoriesLogo from "../../images/memoriesLogo.png";
 import * as actionType from "../../constants/actionTypes";
 import useStyles from "./styles";
 
@@ -32,22 +33,25 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);// eslint-disable-line react-hooks/exhaustive-deps
+  }, [location]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <div className={classes.brandContainer}>
-        <Typography
+      <Link to="/" className={classes.brandContainer}>
+        <img
           component={Link}
           to="/"
-          className={classes.heading}
-          variant="h2"
-          align="center"
-        >
-          Memories
-        </Typography>
-        <img className={classes.image} src={memories} alt="icon" height="60" />
-      </div>
+          src={memoriesText}
+          alt="icon"
+          height="45px"
+        />
+        <img
+          className={classes.image}
+          src={memoriesLogo}
+          alt="icon"
+          height="40px"
+        />
+      </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>
