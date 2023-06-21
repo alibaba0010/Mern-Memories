@@ -26,6 +26,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const query = useQuery();
   const page = query.get("page") || 1;
+  const searchQuery = query.get('searchQuery');
+
   const classes = useStyles();
 
   const [search, setSearch] = useState("");
@@ -103,9 +105,11 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <Paper className={classes.pagination} elevation={6}>
-              <Pagination page={page} />
-            </Paper>
+            {!searchQuery && !tags.length && (
+              <Paper className={classes.pagination} elevation={6}>
+                <Pagination page={page} />
+              </Paper>
+            )}
           </Grid>
         </Grid>
       </Container>
