@@ -42,7 +42,7 @@ const Post = () => {
     );
   }
 
-  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
+  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id); //keep all the post and remove the one with id === id
 
   return (
     <Paper style={{ padding: "20px", borderRadius: "15px" }} elevation={6}>
@@ -89,7 +89,7 @@ const Post = () => {
       </div>
       {!!recommendedPosts.length && (
         <div className={classes.section}>
-          <Typography gutterBottom variant="h5">
+          <Typography gutterBottom variant="h5"> 
             You might also like:
           </Typography>
           <Divider />
@@ -113,7 +113,7 @@ const Post = () => {
                   <Typography gutterBottom variant="subtitle1">
                     Likes: {likes.length}
                   </Typography>
-                  <img src={selectedFile} width="200px" alt=""/>
+                  <img src={selectedFile} width="200px" alt="" />
                 </div>
               )
             )}
